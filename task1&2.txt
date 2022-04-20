@@ -1,0 +1,50 @@
+INSERT INTO isci VALUES('holder','name surname3',1,700)
+
+
+INSERT INTO vezife VALUES('Front-end')
+INSERT INTO vezife VALUES('Back-end')
+
+INSERT INTO filial VALUES('Baki')
+INSERT INTO filial VALUES('Gence')
+
+INSERT INTO mehsul VALUES('Iphone',500,700)
+INSERT INTO mehsul VALUES('Samsung',200,500)
+INSERT INTO mehsul VALUES('Nokia',50,170)
+INSERT INTO mehsul VALUES('1Dollar',1,150000)
+
+INSERT INTO satis VALUES(1,1,30,'2008-11-11 13:23:44')
+INSERT INTO satis VALUES(1,2,30,'2019-10-22 21:10:00')
+INSERT INTO satis VALUES(2,1,40,'2008-11-11 12:34:45')
+
+SELECT * FROM isci
+SELECT * FROM vezife
+SELECT * FROM filial
+SELECT * FROM mehsul
+SELECT * FROM satis
+
+--LEVEL1
+
+--task1
+SELECT COUNT(SAA) FROM isci
+--task2
+SELECT * FROM isci ORDER BY maas DESC
+--task3
+SELECT * FROM mehsul ORDER BY satis DESC
+--task4
+SELECT * FROM satis ORDER BY satisTarixi
+--task5
+SELECT * FROM isci,vezife where isci.vezifeid = vezife.id
+
+--LEVEL2
+
+--task1
+SELECT * FROM satis,filial where satis.id = filial.id
+
+--task2
+SELECT COUNT(id) FROM satis
+
+--task3
+SELECT YEAR(satisTarixi) AS Year, 
+MONTH(satisTarixi) AS Month,SUM(endirim) 
+AS Total_Sales FROM satis   
+GROUP BY YEAR(satisTarixi), MONTH(satisTarixi) ; 
